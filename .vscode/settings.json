@@ -5,4 +5,5 @@
       "editor.formatOnSaveMode": "file",
   },
   "terminal.integrated.scrollback": 1000000,
+  "workbench.colorTheme": "Kimbie Dark",
 }
