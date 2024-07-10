@@ -1,0 +1,56 @@
+{
+  "15": {
+    "inputs": {
+      "ckpt_name": "Meta-Llama-3-8B-Instruct-Q5_K_M.gguf",
+      "max_ctx": 2048,
+      "gpu_layers": 100,
+      "n_threads": 2
+    },
+    "class_type": "LLMLoader",
+    "_meta": {
+      "title": "LLMLoader"
+    }
+  },
+  "24": {
+    "inputs": {
+      "string": "Looking at the examples 1 and 2 below generate the sub-prompts for the FINAL EXAMPLE containing a concise story:\n\nEXAMPLE 1:\nOverall prompt:Story about Leonard Cohen's big day at the beach.\nNumber of items: 12 \nSub-prompts:Leonard Cohen looking lying in bed|Leonard Cohen brushing teeth|Leonard Cohen smiling happily|Leonard Cohen driving in car, morning|Leonard Cohen going for a swim at beach|Leonard Cohen sitting on beach towel|Leonard Cohen building sandcastle|Leonard Cohen eating sandwich|Leonard Cohen walking along beach|Leonard Cohen getting out of water at seaside|Leonard Cohen driving home, dark outside|Leonard Cohen lying in bed smiling|close of of Leonard Cohen asleep in bed---\n\nEXAMPLE 2:\nOverall prompt: Visualizing the first day of spring \nNumber of items: 24 \nSub-prompts:Frost melting off grass|Sun rising over dewy meadow|Sparrows chirping in tree|Puddles drying up|Bees flying out of hive|Flowers blooming in garden bed|Robin landing on branch|Steam rising from cup of coffee|Morning light creeping through curtains|Wind rustling through leaves|Crocus bulbs pushing through soil|Buds swelling on branches|Birds singing in chorus|Sun shining through rain-soaked pavement|Droplets clinging to spider's web|Green shoots bursting forth from roots|Garden hose dripping water|Fog burning off lake|Light filtering through stained glass window|Hummingbird sipping nectar from flower|Warm breeze rustling through wheat field|Birch trees donning new green coat|Solar eclipse casting shadow on path|Birds returning to their nests---\n\nFINAL EXAMPLE:\nOverall prompt:a magical dark castle \nNumber of items: 5 \nSub-prompts:"
+    },
+    "class_type": "String Literal",
+    "_meta": {
+      "title": "String Literal"
+    }
+  },
+  "26": {
+    "inputs": {
+      "text": [
+        "30",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "✴️ U-NAI Get Text"
+    }
+  },
+  "30": {
+    "inputs": {
+      "prompt": [
+        "24",
+        0
+      ],
+      "temperature": 0.15,
+      "attribute_name": "Sub-prompts",
+      "attribute_type": "str",
+      "attribute_description": "generate Sub-prompts:",
+      "categories": "",
+      "model": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "StructuredOutput",
+    "_meta": {
+      "title": "Structured Output"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+comfyui*.log
+
+venv
+dough-env
+.vscode/launch.json
+
+# system
+.DS_Store
+
+# user files
+app_settings.csv
+videos
+videos/*
+temp_dir/
+/temp/
+training_data
+inference_log/*
+*.db
+test.py
+doc.py
+.env
+data.json
+comfy_runner/
+ComfyUI/
+output/
+images.zip
+
+# generated file TODO: move inside videos
+depth.png
+masked_image.png
+concatenated.mp4
+temp.png
+scripts/app_checkpoint.json
