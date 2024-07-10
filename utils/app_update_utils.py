@@ -132,12 +132,10 @@ def update_dough():
         )
         if completed_process.returncode == 0:
             print("Database migration successful")
-            
+
     # installing requirements
     try:
-        subprocess.run(
-            [sys.executable, "-m", "pip", "install", "-r", "requirements.txt"], check=True
-        )
+        subprocess.run([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"], check=True)
         print(f"Dough requirements installed successfully")
     except subprocess.CalledProcessError as e:
         print(f"Error installing requirements for Dough: {str(e)}")
@@ -279,7 +277,7 @@ def clear_save_checkpoint():
 
 def get_current_branch(git_dir):
     if not is_git_initialized(git_dir):
-        init_git("../", "https://github.com/banodoco/Dough.git")
+        init_git("../", "https://github.com/piyushK52/dough-update-test.git")
 
     try:
         completed_process = subprocess.run(
@@ -300,7 +298,7 @@ def get_current_branch(git_dir):
 def get_remote_version():
     current_branch = get_current_branch(dough_dir)
 
-    url = f"https://raw.githubusercontent.com/banodoco/Dough/{current_branch}/scripts/app_version.txt"
+    url = f"https://raw.githubusercontent.com/piyushK52/dough-update-test/{current_branch}/scripts/app_version.txt"
     try:
         response = requests.get(url)
         response.raise_for_status()
