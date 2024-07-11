@@ -238,6 +238,7 @@ def update_git_repo(git_dir, commit_hash=None):
                 else:
                     print("Already at the stable commit")
             else:
+                raise Exception("a weird error")
                 repo.remotes.origin.pull(current_branch.name)
     except Exception as e:
         print(f"Error occured while pulling fresh changes: {str(e)}")
