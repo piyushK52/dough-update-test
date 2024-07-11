@@ -21,6 +21,8 @@ dough_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 comfy_runner_dir = os.path.join(dough_dir, "comfy_runner")
 comfy_ui_dir = os.path.join(dough_dir, "ComfyUI")
 
+status = True
+
 
 # TODO: add all these methods in a common interface
 def check_and_pull_changes():
@@ -58,7 +60,9 @@ def check_and_pull_changes():
                 ## New changes have been fetched. Please stop the app from the terminal and then restart to apply the changes.         
             """
             )
-            save_checkpoint()
+            global status
+            if status:
+                save_checkpoint()
             st.session_state["update_in_progress"] = False
             st.stop()
         else:
@@ -68,11 +72,15 @@ def check_and_pull_changes():
 
 def pull_fresh_changes():
     print("Pulling latest changes...")
+    global status
+    status = False
     try:
-        update_git_repo(dough_dir)
+        status = update_git_repo(dough_dir)
         update_event.set()
     except Exception as e:
         print(f"Error occurred: {str(e)}")
+
+    return status
 
 
 def apply_updates():
@@ -240,9 +248,13 @@ def update_git_repo(git_dir, commit_hash=None):
             else:
                 raise Exception("a weird error")
                 repo.remotes.origin.pull(current_branch.name)
+
+        return True
     except Exception as e:
         print(f"Error occured while pulling fresh changes: {str(e)}")
         handle_git_error(repo)
+
+    return False
 
 
 def handle_git_error(repo):
