@@ -245,8 +245,11 @@ def update_git_repo(git_dir, commit_hash=None):
 
 
 def handle_git_error(repo):
+    if not repo:
+        return
+
     try:
-        # Abort any in-progress merge or rebase
+        # abort in-progress merge or rebase
         if repo.git.status("--porcelain"):
             repo.git.merge("--abort")
             repo.git.rebase("--abort")
