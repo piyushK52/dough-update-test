@@ -246,7 +246,6 @@ def update_git_repo(git_dir, commit_hash=None):
                 else:
                     print("Already at the stable commit")
             else:
-                raise Exception("a weird error")
                 repo.remotes.origin.pull(current_branch.name)
 
         return True
